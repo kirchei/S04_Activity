@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cosmic Ray's Starlight Café</title>
+        <link rel="icon" type = "img/png" href="https://freepngimg.com/download/temp_png/86267-flowey-square-angle-dog-undertale-free-photo-png_600x600.png">
+        <link rel = "stylesheet" href = "styles.css">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo">Cosmic Ray</a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <img src="images/stars.png" id="stars" alt="star background">
+                <img src="images/moon.png" id="moon" alt="moon background">
+                <h1 id="text">Starlight Café</h1>
+                <a href="scroll" id="button">Explore</a>
+                <img src="images/mountains_behind.png" id="mountains_behind" alt="mountains_behind background">
+                <img src="images/mountains_front.png" id="mountains_front" alt="mountains_front background">
+            </section>
+            <div class="sec" id="scroll">
+                <h2>Menu</h2>
+                <div class="menu-item">
+                    <img src="images/bacon_cheeseburger.png" alt="Bacon Cheeseburger">
+                    <h3>Bacon Cheeseburger</h3>
+                    <p>A classic bacon cheeseburger served with all the fixings.</p>
+                    <br />
+                </div>
+                <div class="menu-item">
+                    <img src="images/chicken_strips.png" alt="Chicken Strips">
+                    <h3>Chicken Strips</h3>
+                    <p>Crispy chicken strips served with your choice of dipping sauce.</p>
+                    <br />
+                </div>
+                <div class="menu-item">
+                    <img src="images/plant_based_burger.png" alt="Plant-Based Burger">
+                    <h3>Plant-Based Burger</h3>
+                    <p>A delicious plant-based burger option for our vegetarian guests.</p>
+                    <br />
+                </div>
+            </div>
+        </main>
+
+        <script>
+            let stars = document.getElementById('stars');
+            let moon = document.getElementById('moon');
+            let mountains_behind = document.getElementById('mountains_behind');
+            let mountains_front = document.getElementById('mountains_front');
+            let text = document.getElementById('text');
+            let button = document.getElementById('button');
+            let header = document.querySelector('header')
+
+            window.addEventListener('scroll', function(){
+                let value = window.scrollY;
+                stars.style.left = value * 0.25 + 'px';
+                moon.style.top = value * 1.05 + 'px';
+                mountains_behind.style.top = value * 0.05 + 'px';
+                mountains_front.style.top = value * 0 + 'px';
+                text.style.marginRight = value * 3.5 + 'px';
+                text.style.marginTop = value * 1.5 + 'px';
+                button.style.marginTop = value * 1.5 + 'px';
+                header.style.top = value * 0.5 + 'px';
+            })
+
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector('#scroll');
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        </script>
+    </body>
+</html>
